@@ -1,110 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Narjes Farhat | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Narjes Farhat | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: rgba(255, 255, 255, 0.05);
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
 
-<style>
-  body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-  }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
 
-  /* HEADER */
-  header {
-    text-align: center;
-    padding: 5rem 1rem;
-    background-image: url('gradient-bg.png');
-    background-size: cover;
-    background-position: center;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-  }
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border-bottom: 1px solid #1e293b;
+    }
 
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-  }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
 
-  nav a {
-    margin: 0 1rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
+    nav a {
+      margin: 0 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
 
-  /* SECTIONS */
-  section {
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 1rem;
-  }
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
 
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    border-left: 5px solid #ffdd57;
-    padding-left: 10px;
-  }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
 
-  /* GLASS CARDS */
-  .card {
-    background: rgba(255,255,255,0.15);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: transform 0.3s;
-  }
+    .card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      border: 1px solid #1e293b;
+      transition: transform 0.3s ease;
+    }
 
-  .card:hover {
-    transform: translateY(-5px);
-  }
+    .card:hover {
+      transform: translateY(-4px);
+    }
 
-  /* BUTTON */
-  .cta-button {
-    background: #ffdd57;
-    color: #333;
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
+    .cta-button {
+      background: var(--accent);
+      color: #0f172a;
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
 
-  /* CONTACT FORM */
-  form input, form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      background-color: #1e293b;
+      color: var(--text);
+      font-size: 1rem;
+    }
 
-  form input[type="submit"] {
-    background: #ffdd57;
-    color: #333;
-    font-weight: bold;
-    cursor: pointer;
-  }
+    form input[type="submit"] {
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
 
-  footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-</style>
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
@@ -120,8 +121,7 @@
   <h2>About Me</h2>
   <div class="card">
     <p>
-      I’m an aspiring AI engineer blending psychosociology, UX research, and computer science.
-      I love creating human-centered digital experiences and exploring ethical, creative uses of AI.
+      I’m an aspiring AI engineer with a background in psychosociology, UX research, and computer science fundamentals. I focus on human-centered design, ethical AI, and building thoughtful digital solutions.
     </p>
     <button class="cta-button">Let’s Collaborate</button>
   </div>
@@ -150,7 +150,7 @@
 <section id="contact">
   <h2>Contact Me</h2>
   <div class="card">
-    <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+    <form action="mailto:narjesfarhat@gmail.com" method="post" enctype="text/plain">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
