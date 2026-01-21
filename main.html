@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Narjes Farhat | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-image: url('gradient-bg.png'); /* Upload this image to your repo */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .intro {
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .cta-button {
+      background-color: #e74c3c;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+    .project {
+      background-color: #fff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .project h3 {
+      margin-top: 0;
+      color: #3498db;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    input[type="submit"] {
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Narjes Farhat</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="intro" id="home">
+    <p>
+      I'm an aspiring AI engineer with a background in psychosociology, UX research, and computer science fundamentals. Passionate about human-centered design, ethical AI, and building thoughtful digital solutions.
+    </p>
+    <button class="cta-button">Let's Collaborate</button>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>CostScanner</h3>
+      <p>A Python-based tool for scanning and analyzing cost data. Built as part of my CS50x learning journey.</p>
+    </div>
+    <div class="project">
+      <h3>UX + AI Concept</h3>
+      <p>Exploring how psychosociology and UX principles can shape ethical AI interfaces. Currently in ideation phase.</p>
+    </div>
+    <div class="project">
+      <h3>Python Assignments</h3>
+      <p>Early exercises and problem-solving tasks from CS50x — building confidence in logic and syntax.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="mailto:narjesfarhat4@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message" />
+    </form>
+  </section>
+
+  <footer>
+    © 2026 Narjes Farhat | GitHub: narjesfarhat
+  </footer>
+</body>
+</html>
