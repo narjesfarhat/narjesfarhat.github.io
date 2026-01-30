@@ -59,7 +59,19 @@
       50% { transform: translateY(-40px) rotate(20deg); opacity: 0.8; }
       100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
     }
-    /* ------------------------------------------------ */
+
+    /* ---------- ANIMATED GRADIENT BORDER ---------- */
+    @keyframes gradient-border {
+      0% { border-image-source: linear-gradient(45deg, #38bdf8, #7dd3fc); }
+      50% { border-image-source: linear-gradient(135deg, #7dd3fc, #38bdf8); }
+      100% { border-image-source: linear-gradient(45deg, #38bdf8, #7dd3fc); }
+    }
+
+    .gradient-border {
+      border: 2px solid transparent;
+      border-image-slice: 1;
+      animation: gradient-border 6s ease infinite;
+    }
 
     header {
       text-align: center;
@@ -115,18 +127,20 @@
       padding-left: 10px;
     }
 
+    /* Apply animated border to cards */
     .card {
       background: var(--card);
       padding: 1.5rem;
       border-radius: 12px;
       margin-bottom: 1.5rem;
-      border: 1px solid #1e293b;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      border: 2px solid transparent;
+      border-image-slice: 1;
+      animation: gradient-border 6s ease infinite;
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: var(--accent);
     }
 
     .card h3 {
@@ -140,13 +154,16 @@
       margin-bottom: 0.8rem;
     }
 
+    /* Animated gradient border button */
     .cta-button {
       background: var(--accent);
       color: #0f172a;
       padding: 0.7rem 1.4rem;
       border-radius: 25px;
       font-weight: 600;
-      border: none;
+      border: 2px solid transparent;
+      border-image-slice: 1;
+      animation: gradient-border 6s ease infinite;
       cursor: pointer;
       margin-top: 1rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -263,7 +280,7 @@
 
 <section id="about">
   <h2>About Me</h2>
-  <div class="card">
+  <div class="card gradient-border">
     <p>
       I'm a beginner AI engineer actively learning and building my skills through hands-on projects and exploration. My focus is on <strong>agentic design</strong> — crafting intelligent systems that act autonomously and ethically. I'm passionate about understanding how AI agents can be designed to make decisions, learn from interactions, and operate with transparency.
     </p>
@@ -280,29 +297,29 @@
       <span class="skill-tag">AI Ethics</span>
       <span class="skill-tag">UX Research</span>
     </div>
-    <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Let's Collaborate</button>
+    <button class="cta-button gradient-border" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Let's Collaborate</button>
   </div>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
 
-  <div class="card">
+  <div class="card gradient-border">
     <h3>CostScanner</h3>
     <p>A Python tool for scanning and analyzing cost data. Built during my CS50x journey, this project helped me develop skills in file handling, data processing, and creating practical utilities for real-world applications.</p>
   </div>
 
-  <div class="card">
-    <h3>UX + AI Concept</h3>
-    <p>Exploring how psychosociology and user experience principles shape ethical AI interfaces. This research-driven project investigates the intersection of human behavior, design patterns, and responsible AI development.</p>
+  <div class="card gradient-border">
+    <h3>Modern Music App – Figma UI/UX Final Project</h3>
+    <p>Designed a sleek, user-centered music streaming app in Figma, focusing on intuitive navigation, personalized discovery, and a modern visual identity.</p>
   </div>
 
-  <div class="card">
-    <h3>Python Assignments</h3>
-    <p>Early CS50x exercises building my logic and programming foundation. These assignments cover fundamental concepts including algorithms, data structures, and problem-solving strategies essential for AI development.</p>
+  <div class="card gradient-border">
+    <h3>titaninc prediction project</h3>
+    <p> Built a machine learning model to predict passenger survival on the Titanic using feature engineering and classification algorithms.</p>
   </div>
 
-  <div class="card">
+  <div class="card gradient-border">
     <h3>Agentic Systems Exploration</h3>
     <p>Ongoing learning project focused on understanding autonomous AI agents, their decision-making processes, and implementation using frameworks like LangChain. Exploring patterns for building reliable and transparent agent systems.</p>
   </div>
@@ -311,7 +328,7 @@
 
 <section id="contact">
   <h2>Contact Me</h2>
-  <div class="card">
+  <div class="card gradient-border">
     <p style="margin-bottom: 1.5rem;">
       I'm actively seeking junior AI engineer positions and would love to connect about opportunities, collaborations, or just to chat about AI and technology. Feel free to reach out!
     </p>
@@ -330,4 +347,4 @@
 
 </body>
 </html>
-animated gra
+
