@@ -127,7 +127,6 @@
       padding-left: 10px;
     }
 
-    /* Apply animated border to cards */
     .card {
       background: var(--card);
       padding: 1.5rem;
@@ -154,7 +153,6 @@
       margin-bottom: 0.8rem;
     }
 
-    /* Animated gradient border button */
     .cta-button {
       background: var(--accent);
       color: #0f172a;
@@ -222,13 +220,22 @@
       margin-top: 1rem;
     }
 
-    .skill-tag {
+    .skill-tag, .tool-tag {
       background: #1e293b;
       color: var(--accent);
       padding: 0.4rem 1rem;
       border-radius: 20px;
       font-size: 0.9rem;
       border: 1px solid var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tool-tag img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
     }
 
     footer {
@@ -270,10 +277,11 @@
 
 <header>
   <h1>Narjes Farhat</h1>
-  <p class="tagline">Beginner AI Engineer | Agentic Design Enthusiast</p>
+  <p class="tagline">Beginner AI Engineer | Agentic Design Enthusiast | MSc Social Psychology (in progress) i</p>
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#tools">Tools</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -305,25 +313,57 @@
   <h2>Projects</h2>
 
   <div class="card gradient-border">
-    <h3>Cost Scanner Project - CS50X Final Project</h3>
+    <h3>Cost Scanner project-CS50X Final Project</h3>
     <p>A Python tool for scanning and analyzing cost data. Built during my CS50x journey, this project helped me develop skills in file handling, data processing, and creating practical utilities for real-world applications.</p>
   </div>
 
   <div class="card gradient-border">
-    <h3>Modern Music App – Figma UI/UX Final Project from Udemy</h3>
-    <p>Designed a sleek, user-centered music streaming app in Figma, focusing on intuitive navigation, personalized discovery, and a modern visual identity.</p>
+    <h3>Modern Music App – Figma UI/UX Final Project</h3>
+    <p> Designed a sleek, user-centered music streaming app in Figma, focusing on intuitive navigation, personalized discovery, and a modern visual identity.</p>
   </div>
 
   <div class="card gradient-border">
-    <h3>Titaninc Prediction Project - Ai Career Accelerator Course</h3>
+    <h3>Titanic Prediction Project </h3>
     <p> Built a machine learning model to predict passenger survival on the Titanic using feature engineering and classification algorithms.</p>
   </div>
 
   <div class="card gradient-border">
-    <h3>Agentic Systems Exploration - Ai career Accelerator Course</h3>
+    <h3>Agentic Systems Exploration</h3>
     <p>Ongoing learning project focused on understanding autonomous AI agents, their decision-making processes, and implementation using frameworks like LangChain. Exploring patterns for building reliable and transparent agent systems.</p>
   </div>
 
+</section>
+
+<!-- NEW TOOLS & TECHNOLOGIES SECTION -->
+<section id="tools">
+  <h2>Tools & Technologies</h2>
+  <div class="card gradient-border">
+    <div class="skills">
+
+      <span class="tool-tag">Python</span>
+      <span class="tool-tag">LangChain</span>
+
+      <span class="tool-tag">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
+        Figma
+      </span>
+
+      <span class="tool-tag">VSCode</span>
+      <span class="tool-tag">GitHub</span>
+      <span class="tool-tag">Streamlit</span>
+      <span class="tool-tag">Jupyter</span>
+      <span class="tool-tag">Notion</span>
+      <span class="tool-tag">NumPy</span>
+      <span class="tool-tag">Pandas</span>
+      <span class="tool-tag">Scikit‑Learn</span>
+
+      <span class="tool-tag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/SPSS_logo.svg">
+        SPSS
+      </span>
+
+    </div>
+  </div>
 </section>
 
 <section id="contact">
@@ -347,4 +387,5 @@
 
 </body>
 </html>
+
 
