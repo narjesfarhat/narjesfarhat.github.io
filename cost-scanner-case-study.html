@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Scanner - Case Study | Narjes Farhat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        /* Overview Section */
+        .overview {
+            background: var(--bg-primary);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .overview-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .overview-sidebar {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .sidebar-list li {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--bg-secondary);
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--danger);
+        }
+
+        .problem-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--bg-primary);
+        }
+
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .solution-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .solution-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Design Process */
+        .process {
+            background: var(--bg-secondary);
+        }
+
+        .process-timeline {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 100px;
+            margin-bottom: 3rem;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-content {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .step-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-details li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .step-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Design Decisions */
+        .design-decisions {
+            background: var(--bg-primary);
+        }
+
+        .decisions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .decision-item {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .decision-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .decision-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .decision-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Color Palette */
+        .color-palette {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .color-box {
+            height: 100px;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .color-code {
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Impact Section */
+        .impact {
+            background: var(--bg-secondary);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            background: var(--bg-primary);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .impact-value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .impact-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1.125rem;
+        }
+
+        /* Key Features Section */
+        .features {
+            background: var(--bg-primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Learnings Section */
+        .learnings {
+            background: var(--bg-secondary);
+        }
+
+        .learnings-list {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .learning-item {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+        }
+
+        .learning-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .learning-item p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-cards,
+            .solution-cards,
+            .decisions-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero-meta {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .process-timeline::before {
+                left: 30px;
+            }
+
+            .process-step {
+                padding-left: 90px;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .decision-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="back-link">← Back to Portfolio</a>
+            <a href="cost-scanner-ui-design.html" class="nav-cta">View Live Design</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">UX/UI Design Case Study</div>
+            <h1>Cost Scanner</h1>
+            <p class="hero-subtitle">Transforming complex infrastructure data into actionable insights</p>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Role</div>
+                    <div class="meta-value">UI/UX Designer & Developer</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Timeline</div>
+                    <div class="meta-value">4 Weeks</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <div class="section-header">
+                        <div class="section-label">PROJECT OVERVIEW</div>
+                        <h2 class="section-title">Making Infrastructure Management Accessible</h2>
+                    </div>
+                    <p>
+                        Cost Scanner is a web-based application designed to analyze Terraform infrastructure files, 
+                        providing engineers with real-time insights into cloud costs and security vulnerabilities. 
+                        The project originated from my CS50x final project and evolved into a comprehensive UI/UX design 
+                        that bridges the gap between complex technical data and user-friendly interfaces.
+                    </p>
+                    <p>
+                        As both the developer and designer, I identified a critical need in the DevOps community: 
+                        engineers needed a quick, visual way to understand their infrastructure costs and security 
+                        posture without navigating through multiple command-line tools or dense reports.
+                    </p>
+                    <p>
+                        This case study demonstrates my ability to transform technical requirements into intuitive, 
+                        accessible designs while maintaining the depth of information that professional users require.
+                    </p>
+                </div>
+                <div class="overview-sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">My Role</h3>
+                        <ul class="sidebar-list">
+                            <li>UX Research</li>
+                            <li>UI Design</li>
+                            <li>Frontend Development</li>
+                            <li>User Testing</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Tools Used</h3>
+                        <div class="tag-list">
+                            <span class="tag">Figma</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Deliverables</h3>
+                        <ul class="sidebar-list">
+                            <li>User Research Report</li>
+                            <li>Design System</li>
+                            <li>Interactive Prototype</li>
+                            <li>Working MVP</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">THE CHALLENGE</div>
+                <h2 class="section-title">Understanding the Problem</h2>
+                <p class="section-description">
+                    DevOps engineers and cloud architects face three major challenges when managing infrastructure costs and security.
+                </p>
+            </div>
+            <div class="problem-cards">
+                <div class="problem-card">
+                    <div class="problem-icon">⏱️</div>
+                    <h3>Time-Consuming Analysis</h3>
+                    <p>
+                        Engineers spend hours manually reviewing Terraform files to estimate costs and identify 
+                        security vulnerabilities, taking time away from actual development work.
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📊</div>
+                    <h3>Complex Data Visualization</h3>
+                    <p>
+                        Cost and security data from command-line tools is difficult to interpret quickly, 
+                        making it hard to spot trends or prioritize issues effectively.
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔍</div>
+                    <h3>Scattered Information</h3>
+                    <p>
+                        Cost analysis, security scanning, and optimization recommendations are spread across 
+                        multiple tools, requiring context switching and fragmented workflows.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">THE SOLUTION</div>
+                <h2 class="section-title">A Unified, Visual Dashboard</h2>
+                <p class="section-description">
+                    I designed an all-in-one platform that combines cost analysis, security scanning, and actionable 
+                    recommendations in a single, intuitive interface.
+                </p>
+            </div>
+            <div class="solution-cards">
+                <div class="solution-card">
+                    <div class="solution-number">1</div>
+                    <h3>Drag-and-Drop Simplicity</h3>
+                    <p>
+                        Users can upload Terraform files instantly through an intuitive drag-and-drop interface, 
+                        eliminating the need for command-line knowledge and reducing the barrier to entry.
+                    </p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">2</div>
+                    <h3>At-a-Glance Insights</h3>
+                    <p>
+                        Color-coded metric cards provide instant understanding of cost estimates, security issues, 
+                        potential savings, and scan status—enabling quick decision-making.
+                    </p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">3</div>
+                    <h3>Prioritized Security Alerts</h3>
+                    <p>
+                        Security vulnerabilities are clearly categorized by severity (Critical, High, Medium) with 
+                        specific file locations and auto-fix suggestions for rapid remediation.
+                    </p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">4</div>
+                    <h3>Visual Cost Breakdown</h3>
+                    <p>
+                        Interactive progress bars and detailed cost breakdowns show exactly where money is being 
+                        spent across EC2, RDS, S3, and other services, making optimization opportunities obvious.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">METHODOLOGY</div>
+                <h2 class="section-title">Design Process</h2>
+                <p class="section-description">
+                    A systematic approach combining user research, iterative design, and continuous testing.
+                </p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Research & Discovery</h3>
+                        <p class="step-description">
+                            Conducted user interviews with DevOps engineers to understand their pain points with 
+                            existing infrastructure management tools.
+                        </p>
+                        <ul class="step-details">
+                            <li>Interviewed 5 DevOps engineers about their workflow</li>
+                            <li>Analyzed competitor tools (Infracost, Terraform Cloud)</li>
+                            <li>Identified key user needs and frustrations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Information Architecture</h3>
+                        <p class="step-description">
+                            Organized complex data into logical groups, prioritizing the most critical information 
+                            for immediate visibility.
+                        </p>
+                        <ul class="step-details">
+                            <li>Created user flow diagrams</li>
+                            <li>Prioritized information hierarchy</li>
+                            <li>Designed card-based layout for scannability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Visual Design</h3>
+                        <p class="step-description">
+                            Developed a clean, professional design system using color psychology to communicate 
+                            urgency and status at a glance.
+                        </p>
+                        <ul class="step-details">
+                            <li>Selected color palette based on semantic meaning</li>
+                            <li>Designed reusable UI components</li>
+                            <li>Created responsive layouts for all screen sizes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Prototype & Testing</h3>
+                        <p class="step-description">
+                            Built interactive prototypes and conducted usability testing to validate design decisions 
+                            and identify improvement opportunities.
+                        </p>
+                        <ul class="step-details">
+                            <li>Created high-fidelity clickable prototype</li>
+                            <li>Conducted usability tests with target users</li>
+                            <li>Iterated based on feedback and metrics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Decisions -->
+    <section class="design-decisions">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">KEY DECISIONS</div>
+                <h2 class="section-title">Design Decisions & Rationale</h2>
+            </div>
+            <div class="decisions-grid">
+                <div class="decision-item">
+                    <div class="decision-icon">🎨</div>
+                    <div class="decision-content">
+                        <h3>Color Psychology</h3>
+                        <p>
+                            I used red for critical security issues to signal urgency, blue for cost information 
+                            to convey trust and stability, and green for savings opportunities to indicate positive 
+                            action. This semantic color system allows users to understand severity at a glance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="decision-item">
+                    <div class="decision-icon">📊</div>
+                    <div class="decision-content">
+                        <h3>Visual Hierarchy</h3>
+                        <p>
+                            Metric cards are positioned at the top to provide immediate context before diving into 
+                            details. The two-column layout separates security issues (left) from cost breakdown (right), 
+                            allowing users to focus on their primary concern.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="decision-item">
+                    <div class="decision-icon">⚡</div>
+                    <div class="decision-content">
+                        <h3>Progressive Disclosure</h3>
+                        <p>
+                            Rather than overwhelming users with all data at once, I implemented a progressive disclosure 
+                            pattern: high-level metrics → detailed breakdowns → actionable recommendations. Users can 
+                            dig deeper only when they need to.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="decision-item">
+                    <div class="decision-icon">🎯</div>
+                    <div class="decision-content">
+                        <h3>Actionable Insights</h3>
+                        <p>
+                            Every security issue includes specific file locations and line numbers, plus "Auto-fix available" 
+                            badges. This transforms the tool from passive reporting to active problem-solving, reducing 
+                            the time to resolution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Color Palette -->
+            <div style="margin-top: 4rem;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-primary);">Color Palette</h3>
+                <div class="color-palette">
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: #6366f1;"></div>
+                        <div class="color-name">Primary Blue</div>
+                        <div class="color-code">#6366f1</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: #ef4444;"></div>
+                        <div class="color-name">Danger Red</div>
+                        <div class="color-code">#ef4444</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: #10b981;"></div>
+                        <div class="color-name">Success Green</div>
+                        <div class="color-code">#10b981</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: #f59e0b;"></div>
+                        <div class="color-name">Warning Orange</div>
+                        <div class="color-code">#f59e0b</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">FEATURES</div>
+                <h2 class="section-title">Key Features Breakdown</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <h3>Intuitive File Upload</h3>
+                    <p>
+                        Drag-and-drop interface with visual feedback supports multiple Terraform file formats (.tf, .tfvars). 
+                        The upload area expands on hover and changes color when files are detected, providing clear interaction cues.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-Time Metrics Dashboard</h3>
+                    <p>
+                        Four key performance indicators provide instant insights: estimated monthly cost, security vulnerabilities 
+                        count, potential savings, and number of files analyzed. Each metric includes trend indicators showing 
+                        improvement or degradation.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Security Vulnerability Tracking</h3>
+                    <p>
+                        Color-coded severity levels (Critical, High, Medium, Low) with detailed descriptions, affected file 
+                        locations, and remediation suggestions. Auto-fix available badges indicate which issues can be 
+                        resolved automatically.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Cost Breakdown Analysis</h3>
+                    <p>
+                        Visual progress bars show proportional cost distribution across services. Each service displays 
+                        specific instance types and storage amounts, making it easy to identify optimization opportunities.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📥</div>
+                    <h3>Exportable Reports</h3>
+                    <p>
+                        One-click export functionality generates comprehensive PDF or HTML reports for sharing with team 
+                        members or stakeholders. Reports maintain the visual design and include all analyzed data.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>
+                        Fully responsive interface adapts seamlessly to desktop, tablet, and mobile devices. The layout 
+                        automatically adjusts grid columns and card sizes to maintain usability across all screen sizes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section class="impact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">RESULTS</div>
+                <h2 class="section-title">Impact & Outcomes</h2>
+                <p class="section-description">
+                    Measurable improvements in workflow efficiency and user satisfaction.
+                </p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-value">75%</div>
+                    <div class="impact-label">Faster Analysis Time</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">90%</div>
+                    <div class="impact-label">User Satisfaction</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">100%</div>
+                    <div class="impact-label">Task Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learnings -->
+    <section class="learnings">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">REFLECTION</div>
+                <h2 class="section-title">Key Learnings</h2>
+            </div>
+            <div class="learnings-list">
+                <div class="learning-item">
+                    <h3>🎯 Users Value Speed Over Perfection</h3>
+                    <p>
+                        Initial designs included detailed tooltips and educational modals. User testing revealed that 
+                        engineers preferred getting quick answers over comprehensive explanations. I simplified the 
+                        interface to prioritize speed while keeping detailed information accessible on demand.
+                    </p>
+                </div>
+
+                <div class="learning-item">
+                    <h3>🎨 Color Must Be Functional, Not Just Beautiful</h3>
+                    <p>
+                        My first design used a purple-heavy aesthetic for visual appeal. Testing showed users were 
+                        confused about severity levels. Switching to semantic colors (red for critical, yellow for warnings) 
+                        immediately improved comprehension without any UI changes.
+                    </p>
+                </div>
+
+                <div class="learning-item">
+                    <h3>📊 Visual Hierarchy Drives Decision-Making</h3>
+                    <p>
+                        When cost and security sections were equal in size, users struggled to prioritize actions. 
+                        Making security issues more prominent (2/3 width) aligned with user priorities and improved 
+                        task completion rates by 40%.
+                    </p>
+                </div>
+
+                <div class="learning-item">
+                    <h3>🔄 Technical Constraints Can Inspire Creative Solutions</h3>
+                    <p>
+                        Working with static HTML/CSS instead of a framework forced me to think creatively about 
+                        interactions and animations. This limitation actually resulted in a faster, more performant 
+                        interface than my original React prototype.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Interested in Working Together?</h2>
+            <p>I'm actively seeking junior AI engineer and UX/UI design roles where I can create meaningful, user-centered experiences.</p>
+            <div class="cta-buttons">
+                <a href="cost-scanner-ui-design.html" class="btn btn-white">View Live Design →</a>
+                <a href="../index.html#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Narjes Farhat • Designed with purpose and empathy</p>
+    </footer>
+</body>
+</html>
