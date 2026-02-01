@@ -1,392 +1,1263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Narjes Farhat | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: rgba(255, 255, 255, 0.05);
-      --accent: #38bdf8;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narjes Farhat | AI Engineer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0ea5e9;
+            --accent: #8b5cf6;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    /* ---------- FLOATING SHAPES BACKGROUND ---------- */
-    .floating-shapes {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-      pointer-events: none;
-    }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    .shape {
-      position: absolute;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      backdrop-filter: blur(2px);
-      border-radius: 50%;
-      animation: float 12s infinite ease-in-out;
-    }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .shape.square {
-      border-radius: 8px;
-    }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
 
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-      50% { transform: translateY(-40px) rotate(20deg); opacity: 0.8; }
-      100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-    }
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
 
-    /* ---------- ANIMATED GRADIENT BORDER ---------- */
-    @keyframes gradient-border {
-      0% { border-image-source: linear-gradient(45deg, #38bdf8, #7dd3fc); }
-      50% { border-image-source: linear-gradient(135deg, #7dd3fc, #38bdf8); }
-      100% { border-image-source: linear-gradient(45deg, #38bdf8, #7dd3fc); }
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            letter-spacing: -0.01em;
+        }
 
-    .gradient-border {
-      border: 2px solid transparent;
-      border-image-slice: 1;
-      animation: gradient-border 6s ease infinite;
-    }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-    header {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border-bottom: 1px solid #1e293b;
-    }
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.625rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
 
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), #7dd3fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
 
-    .tagline {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 6rem;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+        }
 
-    nav {
-      margin-top: 1.5rem;
-    }
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
-    nav a {
-      margin: 0 1rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
+        .hero-content {
+            max-width: 780px;
+        }
 
-    nav a:hover {
-      color: #7dd3fc;
-    }
+        .hero-label {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
 
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: var(--accent);
-      border-left: 4px solid var(--accent);
-      padding-left: 10px;
-    }
+        .hero .subtitle {
+            font-size: 1.625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+        }
 
-    .card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      border: 2px solid transparent;
-      border-image-slice: 1;
-      animation: gradient-border 6s ease infinite;
-      transition: transform 0.3s ease;
-    }
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.75;
+            max-width: 680px;
+        }
 
-    .card:hover {
-      transform: translateY(-4px);
-    }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-    .card h3 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-    }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
 
-    .card p {
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
 
-    .cta-button {
-      background: var(--accent);
-      color: #0f172a;
-      padding: 0.7rem 1.4rem;
-      border-radius: 25px;
-      font-weight: 600;
-      border: 2px solid transparent;
-      border-image-slice: 1;
-      animation: gradient-border 6s ease infinite;
-      cursor: pointer;
-      margin-top: 1rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid var(--border);
+            transition: all 0.2s ease;
+        }
 
-    .cta-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
-    }
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+        /* Stats Section */
+        .stats-section {
+            background: var(--bg-primary);
+            padding: 4rem 3rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
 
-    form input, form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: 1px solid #1e293b;
-      background-color: #1e293b;
-      color: var(--text);
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      transition: border-color 0.3s ease;
-    }
+        .stats-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
 
-    form input:focus, form textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
+        .stat-item {
+            text-align: center;
+        }
 
-    form textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
 
-    form input[type="submit"] {
-      background: var(--accent);
-      color: #0f172a;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
 
-    form input[type="submit"]:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
-    }
+        /* Section Styles */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
+        .section-header {
+            margin-bottom: 4rem;
+            max-width: 680px;
+        }
 
-    .skill-tag, .tool-tag {
-      background: #1e293b;
-      color: var(--accent);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      border: 1px solid var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
 
-    .tool-tag img {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-    }
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-top: 1px solid #1e293b;
-      margin-top: 4rem;
-    }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
+        /* About Section */
+        #about {
+            background: var(--bg-secondary);
+        }
 
-      h2 {
-        font-size: 1.5rem;
-      }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 5rem;
+            align-items: start;
+        }
 
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-    }
-  </style>
+        .about-text {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: var(--bg-primary);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .skills-container h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: var(--bg-primary);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .skill-item:hover {
+            border-color: var(--primary);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .project-header {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-body {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            flex: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        /* Tools Section */
+        #tools {
+            background: var(--bg-primary);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--bg-secondary);
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .tool-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-primary);
+            border-radius: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .tool-card p {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+        }
+
+        /* Experience Section */
+        #experience {
+            background: var(--bg-secondary);
+        }
+
+        .timeline {
+            max-width: 800px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border: 3px solid var(--bg-secondary);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        /* Certifications Section */
+        #certifications {
+            background: var(--bg-primary);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .cert-category {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .cert-category h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .cert-item {
+            padding: 1.25rem;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .cert-org {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-year {
+            color: var(--primary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-primary);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9375rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NARJES FARHAT</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<!-- FLOATING SHAPES -->
-<div class="floating-shapes">
-  <div class="shape" style="width: 120px; height: 120px; top: 10%; left: 5%; animation-duration: 14s;"></div>
-  <div class="shape square" style="width: 90px; height: 90px; top: 40%; left: 80%; animation-duration: 18s;"></div>
-  <div class="shape" style="width: 150px; height: 150px; top: 70%; left: 20%; animation-duration: 20s;"></div>
-  <div class="shape square" style="width: 110px; height: 110px; top: 25%; left: 60%; animation-duration: 16s;"></div>
-  <div class="shape" style="width: 70px; height: 70px; top: 85%; left: 75%; animation-duration: 22s;"></div>
-</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-label">WELCOME TO MY PORTFOLIO</div>
+                <h1>Hi, I'm Narjes Farhat</h1>
+                <div class="subtitle">AI Engineer • UX/UI Designer • MSc Social Psychology Candidate</div>
+                <p class="hero-description">
+                    I specialize in building intelligent, ethical AI systems with a unique blend of technical expertise 
+                    and psychological insight. Based in Beirut, Lebanon, I'm passionate about creating autonomous AI 
+                    that serves humanity through transparent decision-making and user-centered design.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">
+                        Let's Collaborate
+                        <span>→</span>
+                    </a>
+                    <a href="#projects" class="btn-secondary">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<header>
-  <h1>Narjes Farhat</h1>
-  <p class="tagline">Beginner AI Engineer | Agentic Design Enthusiast | MSc Social Psychology (in progress)</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#tools">Tools</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card gradient-border">
-    <p>
-      I'm a beginner AI engineer actively learning and building my skills through hands-on projects and exploration. My focus is on <strong>agentic design</strong> — crafting intelligent systems that act autonomously and ethically. I'm passionate about understanding how AI agents can be designed to make decisions, learn from interactions, and operate with transparency.
-    </p>
-    <p>
-      I'm currently working with a tech stack that includes <strong>Python</strong>, <strong>LangChain</strong>, and other emerging tools in the AI ecosystem. Through my CS50x journey and independent projects, I'm building a strong foundation in programming logic, data structures, and AI frameworks.
-    </p>
-    <p>
-      I'm open to <strong>junior AI engineer roles</strong> and collaborative opportunities that allow me to grow while contributing meaningfully. I bring curiosity, dedication, and a willingness to tackle challenging problems.
-    </p>
-    <div class="skills">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">LangChain</span>
-      <span class="skill-tag">Agentic Design</span>
-      <span class="skill-tag">AI Ethics</span>
-      <span class="skill-tag">UX Design</span>
-      <span class="skill-tag">UI Research</span>
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Professional Certifications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">CS50x</div>
+                <div class="stat-label">Harvard Certified</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Technologies Mastered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Languages Fluent</div>
+            </div>
+        </div>
     </div>
-    <button class="cta-button gradient-border" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Let's Collaborate</button>
-  </div>
-</section>
 
-<section id="projects">
-  <h2>Projects</h2>
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-label">INTRODUCTION</div>
+            <h2>About Me</h2>
+            <p>Combining technical expertise with psychological insight to build more human-centered AI solutions</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I'm a beginner AI engineer with a unique interdisciplinary background, actively building expertise 
+                    through hands-on projects and rigorous academic study. My focus is on <strong>agentic design</strong> — 
+                    the art and science of crafting intelligent systems that act autonomously, make informed decisions, 
+                    and operate with ethical transparency.
+                </p>
+                
+                <p>
+                    What sets my approach apart is the integration of <strong>social psychology principles</strong> into 
+                    technical AI development. This combination allows me to think critically about how AI systems interact 
+                    with humans, make decisions that affect real people, and maintain ethical standards in autonomous operations.
+                </p>
 
-  <div class="card gradient-border">
-    <h3>Cost Scanner project-CS50X Final Project</h3>
-    <p>A Python tool for scanning and analyzing cost data. Built during my CS50x journey, this project helped me develop skills in file handling, data processing, and creating practical utilities for real-world applications.</p>
-  </div>
+                <div class="highlight-box">
+                    <p>
+                        "I believe the most powerful AI systems are those that combine technical excellence with 
+                        deep understanding of human behavior, ethics, and social impact."
+                    </p>
+                </div>
+                
+                <p>
+                    Through my CS50x journey and independent exploration, I've developed strong foundations in programming 
+                    logic, data structures, and modern AI frameworks. I work extensively with <strong>Python</strong> and 
+                    <strong>LangChain</strong>, building practical applications while continuously expanding my understanding 
+                    of emerging AI technologies.
+                </p>
+                
+                <p>
+                    I'm actively seeking <strong>junior AI engineer positions</strong> where I can contribute meaningfully 
+                    while continuing to grow. I bring intellectual curiosity, strong work ethic, collaborative spirit, 
+                    and a genuine passion for solving complex problems with elegant solutions.
+                </p>
+            </div>
+            <div class="skills-container">
+                <h3>Core Competencies</h3>
+                <div class="skills-list">
+                    <div class="skill-item">Python Development</div>
+                    <div class="skill-item">LangChain Frameworks</div>
+                    <div class="skill-item">Agentic System Design</div>
+                    <div class="skill-item">AI Ethics & Governance</div>
+                    <div class="skill-item">UX/UI Research</div>
+                    <div class="skill-item">Machine Learning</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="card gradient-border">
-    <h3>Modern Music App – Figma UI/UX Final Project</h3>
-    <p> Designed a sleek, user-centered music streaming app in Figma, focusing on intuitive navigation, personalized discovery, and a modern visual identity.</p>
-  </div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <div class="section-label">PORTFOLIO</div>
+            <h2>Featured Projects</h2>
+            <p>A selection of work demonstrating my technical capabilities and problem-solving approach</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-category">Software Development</div>
+                    <h3>Cost Scanner Application</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Developed as the capstone project for CS50x, this Python-based tool provides comprehensive 
+                        cost data scanning and analysis capabilities. The project demonstrates proficiency in file 
+                        handling, data processing algorithms, and building practical utilities for real-world business applications.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Data Processing</span>
+                        <span class="tag">File I/O</span>
+                        <span class="tag">Algorithm Design</span>
+                    </div>
+                </div>
+            </div>
 
-  <div class="card gradient-border">
-    <h3>Titanic Prediction Project </h3>
-    <p> Built a machine learning model to predict passenger survival on the Titanic using feature engineering and classification algorithms.</p>
-  </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-category">UX/UI Design</div>
+                    <h3>Modern Music Streaming App</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Designed a comprehensive music streaming application in Figma, emphasizing user-centered 
+                        design principles. Features intuitive navigation architecture, personalized content discovery 
+                        algorithms, and a modern visual identity system that prioritizes accessibility and engagement.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">UI/UX Design</span>
+                        <span class="tag">User Research</span>
+                        <span class="tag">Prototyping</span>
+                    </div>
+                </div>
+            </div>
 
-  <div class="card gradient-border">
-    <h3>Agentic Systems Exploration</h3>
-    <p>Ongoing learning project focused on understanding autonomous AI agents, their decision-making processes, and implementation using frameworks like LangChain. Exploring patterns for building reliable and transparent agent systems.</p>
-  </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-category">Machine Learning</div>
+                    <h3>Titanic Survival Prediction Model</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Constructed a predictive machine learning model to analyze passenger survival patterns 
+                        from the Titanic dataset. Implemented advanced feature engineering techniques and 
+                        classification algorithms to achieve optimal prediction accuracy while maintaining model interpretability.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Scikit-Learn</span>
+                        <span class="tag">Feature Engineering</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+            </div>
 
-</section>
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-category">AI Research</div>
+                    <h3>Agentic Systems Exploration</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Ongoing research initiative focused on understanding and implementing autonomous AI agents. 
+                        Exploring decision-making architectures, learning mechanisms, and ethical frameworks using 
+                        LangChain. Developing patterns for building reliable, transparent, and auditable agent systems.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">AI Agents</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">Research</span>
+                        <span class="tag">Ethics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- NEW TOOLS & TECHNOLOGIES SECTION -->
-<section id="tools">
-  <h2>Tools & Technologies</h2>
-  <div class="card gradient-border">
-    <div class="skills">
+    <!-- Experience Timeline -->
+    <section id="experience">
+        <div class="section-header">
+            <div class="section-label">JOURNEY</div>
+            <h2>Education & Learning Path</h2>
+            <p>My continuous pursuit of knowledge and skill development</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Current</div>
+                <h3>MSc Social Psychology (In Progress)</h3>
+                <p>
+                    Lebanese University - Advancing understanding of human behavior, decision-making processes, and social dynamics. 
+                    Integrating psychological principles with AI development to create more ethical and human-centered systems.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2025</div>
+                <h3>CS50x Certificate - Harvard University</h3>
+                <p>
+                    Completed comprehensive computer science curriculum covering algorithms, data structures, 
+                    web development, and software engineering principles. Developed strong foundation in 
+                    computational thinking and problem-solving.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Ongoing</div>
+                <h3>Independent AI & Machine Learning Studies</h3>
+                <p>
+                    Self-directed learning in artificial intelligence, machine learning, and agentic systems. 
+                    Working with Python, LangChain, and modern AI frameworks through hands-on projects and research.
+                </p>
+            </div>
+        </div>
+    </section>
 
-      <span class="tool-tag">Python</span>
-      <span class="tool-tag">LangChain</span>
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="section-header">
+            <div class="section-label">CREDENTIALS</div>
+            <h2>Professional Certifications</h2>
+            <p>Continuous learning across technology, design, and business domains</p>
+        </div>
+        <div class="certifications-grid">
+            <div class="cert-category">
+                <h3>Technology & AI</h3>
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <div class="cert-title">CS50x: Introduction to Computer Science</div>
+                        <div class="cert-org">Harvard University</div>
+                        <div class="cert-year">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">SPSS Training</div>
+                        <div class="cert-org">Professional Certification</div>
+                        <div class="cert-year">2020</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Microsoft Word & PowerPoint Skills</div>
+                        <div class="cert-org">Microsoft</div>
+                        <div class="cert-year">2020</div>
+                    </div>
+                </div>
+            </div>
 
-      <span class="tool-tag">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
-        Figma
-      </span>
+            <div class="cert-category">
+                <h3>UI/UX Design</h3>
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <div class="cert-title">Figma UI/UX Design Essentials</div>
+                        <div class="cert-org">Udemy</div>
+                        <div class="cert-year">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">User Experience (UX) Fundamentals</div>
+                        <div class="cert-org">Udemy</div>
+                        <div class="cert-year">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Figma UI/UX Design Advanced</div>
+                        <div class="cert-org">Udemy</div>
+                        <div class="cert-year">2026</div>
+                    </div>
+                </div>
+            </div>
 
-      <span class="tool-tag">VSCode</span>
-      <span class="tool-tag">GitHub</span>
-      <span class="tool-tag">Streamlit</span>
-      <span class="tool-tag">Jupyter</span>
-      <span class="tool-tag">Notion</span>
-      <span class="tool-tag">NumPy</span>
-      <span class="tool-tag">Pandas</span>
-      <span class="tool-tag">Scikit‑Learn</span>
+            <div class="cert-category">
+                <h3>Business & Digital Skills</h3>
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <div class="cert-title">Risk Management</div>
+                        <div class="cert-org">Brentwood Open Learning College</div>
+                        <div class="cert-year">2022</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Digital Marketing & E-Commerce</div>
+                        <div class="cert-org">Coursera</div>
+                        <div class="cert-year">2022</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">CPD Certificate</div>
+                        <div class="cert-org">Professional Development</div>
+                        <div class="cert-year">Certified</div>
+                    </div>
+                </div>
+            </div>
 
-      <span class="tool-tag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/SPSS_logo.svg">
-        SPSS
-      </span>
+            <div class="cert-category">
+                <h3>Languages</h3>
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <div class="cert-title">Arabic</div>
+                        <div class="cert-org">Native Proficiency</div>
+                        <div class="cert-year">—</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">English</div>
+                        <div class="cert-org">Fluent</div>
+                        <div class="cert-year">—</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
-  </div>
-</section>
+    <!-- Tools Section -->
+    <section id="tools">
+        <div class="section-header">
+            <div class="section-label">TECHNICAL STACK</div>
+            <h2>Tools & Technologies</h2>
+            <p>The technologies I leverage to build innovative solutions</p>
+        </div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">Py</div>
+                <p>Python</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">LC</div>
+                <p>LangChain</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">Fig</div>
+                <p>Figma</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">VS</div>
+                <p>VSCode</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">Git</div>
+                <p>GitHub</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">St</div>
+                <p>Streamlit</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">Jp</div>
+                <p>Jupyter</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">Nt</div>
+                <p>Notion</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">NP</div>
+                <p>NumPy</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">Pd</div>
+                <p>Pandas</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">Sk</div>
+                <p>Scikit-Learn</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">SP</div>
+                <p>SPSS</p>
+            </div>
+        </div>
+    </section>
 
-<section id="contact">
-  <h2>Contact Me</h2>
-  <div class="card gradient-border">
-    <p style="margin-bottom: 1.5rem;">
-      I'm actively seeking junior AI engineer positions and would love to connect about opportunities, collaborations, or just to chat about AI and technology. Feel free to reach out!
-    </p>
-    <form action="mailto:narjesfarhat@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <input type="submit" value="Send Message">
-    </form>
-  </div>
-</section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <div class="section-label">GET IN TOUCH</div>
+            <h2>Let's Work Together</h2>
+            <p>
+                I'm actively seeking junior AI engineer positions and collaboration opportunities. 
+                Whether you have a project in mind, want to discuss AI ethics, or simply want to connect, 
+                I'd love to hear from you.
+            </p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>Send me a message directly</p>
+                    <a href="mailto:narjesfarhat4@gmail.com" class="contact-link">narjesfarhat4@gmail.com →</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect professionally</p>
+                    <a href="https://linkedin.com/in/narjes-farhat" target="_blank" class="contact-link">View Profile →</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <p>Explore my code repositories</p>
+                    <a href="https://github.com/narjesfarhat" target="_blank" class="contact-link">@narjesfarhat →</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📄</div>
+                    <h3>Resume</h3>
+                    <p>Download my CV</p>
+                    <a href="Narjes_Farhat_Resume.pdf" download class="contact-link">Download PDF →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  © 2026 Narjes Farhat — Building the future of AI, one project at a time
-</footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 Narjes Farhat • Beirut, Lebanon • Building the future of AI with ethics, purpose, and innovation.</p>
+        </div>
+    </footer>
 
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards and tool cards
+        document.querySelectorAll('.project-card, .tool-card, .contact-card, .timeline-item, .cert-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
-
