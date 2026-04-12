@@ -1,1269 +1,1213 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narjes Farhat | AI Engineer Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(245, 166, 35, 0.08) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .contact-box {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 4rem;
+        border-radius: 2rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .contact-box h2 {
+        font-family: var(--serif);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .contact-box p {
+        color: var(--fg-muted);
+        margin-bottom: 2.5rem;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 300;
+      }
 
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #0ea5e9;
-            --accent: #8b5cf6;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --border: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
+      .contact-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+      }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+      .social-row {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+      .social-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--fg-muted);
+        transition: color var(--transition);
+      }
+      .social-item:hover {
+        color: var(--primary);
+      }
+      .social-icon {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+      .social-item:hover .social-icon {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .social-icon svg {
+        width: 1.15rem;
+        height: 1.15rem;
+      }
+      .social-label {
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+      /* =========================================================
+       FOOTER
+    ========================================================= */
+      footer {
+        padding: 2rem 0;
+        border-top: 1px solid var(--border);
+        background: var(--bg);
+      }
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-logo {
+        font-family: var(--serif);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+      .footer-logo span {
+        color: var(--primary);
+      }
+      footer p {
+        font-size: 0.85rem;
+        color: var(--fg-muted);
+      }
+      .footer-langs {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: var(--fg-muted);
+      }
+      .footer-langs .sep {
+        color: rgba(255, 255, 255, 0.15);
+      }
 
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1.25rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      /* =========================================================
+       SKIP LINK (accessibility)
+    ========================================================= */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        background: var(--primary);
+        color: #0d1424;
+        border-radius: 0 0 0.5rem 0.5rem;
+        font-weight: 700;
+        z-index: 999;
+        transition: top 0.2s;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
 
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
+      /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+      @media (max-width: 1024px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-            letter-spacing: -0.01em;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-cta {
-            background: var(--primary);
-            color: white !important;
-            padding: 0.625rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .nav-cta:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 3rem 6rem;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            position: relative;
-        }
-
-        .hero-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .hero-content {
-            max-width: 780px;
-        }
-
-        .hero-label {
-            display: inline-block;
-            background: var(--bg-tertiary);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.02em;
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: 1.625rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 500;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            line-height: 1.75;
-            max-width: 680px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 2px solid var(--border);
-            transition: all 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: var(--bg-primary);
-            padding: 4rem 3rem;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .stats-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 3rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-            max-width: 680px;
-        }
-
-        .section-label {
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            line-height: 1.75;
-        }
-
-        /* About Section */
-        #about {
-            background: var(--bg-secondary);
-        }
-
         .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 5rem;
-            align-items: start;
+          grid-template-columns: 1fr;
+          gap: 3rem;
         }
-
-        .about-text {
-            font-size: 1.0625rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
+        .edu-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
         }
+      }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .highlight-box {
-            background: var(--bg-primary);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .highlight-box p {
-            margin: 0;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .skills-container h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .skill-item {
-            background: var(--bg-primary);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 500;
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
-        }
-
-        .skill-item:hover {
-            border-color: var(--primary);
-            transform: translateX(4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Projects Section */
+      @media (max-width: 768px) {
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+          grid-template-columns: 1fr;
         }
-
-        .project-card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+        .cert-grid {
+          grid-template-columns: 1fr;
         }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary);
+        .contact-box {
+          padding: 2.5rem 1.5rem;
         }
-
-        .project-header {
-            padding: 2.5rem;
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border-bottom: 1px solid var(--border);
+        .nav-links {
+          display: none;
         }
-
-        .project-category {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
+        .nav-hamburger {
+          display: block;
         }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
+        .about-card {
+          position: static;
+          margin-top: 1.5rem;
+          max-width: 100%;
         }
-
-        .project-body {
-            padding: 2.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        .projects-header {
+          flex-direction: column;
         }
-
-        .project-description {
-            color: var(--text-secondary);
-            line-height: 1.75;
-            margin-bottom: 2rem;
-            flex: 1;
+        .about-stats {
+          grid-template-columns: 1fr 1fr;
         }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
         }
+      }
 
-        .tag {
-            background: var(--bg-secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.8125rem;
-            color: var(--text-primary);
-            font-weight: 500;
-            border: 1px solid var(--border);
+      @media (max-width: 480px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
         }
-
-        /* Tools Section */
-        #tools {
-            background: var(--bg-primary);
+        .hero h1 {
+          font-size: 2.4rem;
         }
+      }
 
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.5rem;
+      /* =========================================================
+       PRINT
+    ========================================================= */
+      @media print {
+        nav,
+        .scroll-hint {
+          display: none !important;
         }
-
-        .tool-card {
-            background: var(--bg-secondary);
-            padding: 2rem 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
+        .hero {
+          min-height: auto;
+          padding: 2rem 0;
         }
-
-        .tool-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
+        .hero-bg,
+        .hero-dots,
+        .hero-bottom-fade,
+        .about-glow,
+        .contact-glow {
+          display: none;
         }
-
-        .tool-icon {
-            width: 56px;
-            height: 56px;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-primary);
-            border-radius: 10px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            border: 2px solid var(--border);
-        }
-
-        .tool-card p {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 0.9375rem;
-        }
-
-        /* Experience Section */
-        #experience {
-            background: var(--bg-secondary);
-        }
-
-        .timeline {
-            max-width: 800px;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 14px;
-            height: 14px;
-            background: var(--primary);
-            border: 3px solid var(--bg-secondary);
-            border-radius: 50%;
-        }
-
-        .timeline-date {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-item h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .timeline-item p {
-            color: var(--text-secondary);
-            line-height: 1.75;
-        }
-
-        /* Certifications Section */
-        #certifications {
-            background: var(--bg-primary);
-        }
-
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-        }
-
-        .cert-category {
-            background: var(--bg-secondary);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .cert-category h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .cert-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .cert-item {
-            padding: 1.25rem;
-            background: var(--bg-primary);
-            border-radius: 8px;
-            border-left: 3px solid var(--primary);
-            transition: all 0.2s ease;
-        }
-
-        .cert-item:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .cert-title {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-size: 0.9375rem;
-        }
-
-        .cert-org {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .cert-year {
-            color: var(--primary);
-            font-size: 0.8125rem;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: var(--bg-primary);
-        }
-
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: var(--bg-secondary);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .contact-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 1.5rem;
-            background: var(--primary);
-            color: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-        }
-
-        .contact-card h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .contact-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.9375rem;
-        }
-
-        .contact-link {
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: all 0.2s ease;
-        }
-
-        .contact-link:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: white;
-            padding: 3rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 0.9375rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 4rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .certifications-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .nav-cta {
-                display: none;
-            }
-
-            .hero {
-                padding: 6rem 1.5rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.25rem;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
-            .tools-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
+      }
     </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">NARJES FARHAT</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <!-- Skip to main content (accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <!-- Changed: updated title display to reflect AI & Digital Systems Specialist role -->
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="#" class="nav-logo" aria-label="Narjes Farhat home"
+          >N<span>.</span>F</a
+        >
+        <ul class="nav-links" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        </ul>
+        <button
+          class="nav-hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          onclick="toggleMenu(this)"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu container" role="menu">
+        <a href="#about" role="menuitem" onclick="closeMenu()">About</a>
+        <a href="#experience" role="menuitem" onclick="closeMenu()"
+          >Experience</a
+        >
+        <a href="#projects" role="menuitem" onclick="closeMenu()">Projects</a>
+        <a href="#skills" role="menuitem" onclick="closeMenu()">Skills</a>
+        <a href="#education" role="menuitem" onclick="closeMenu()">Education</a>
+        <a href="#contact" role="menuitem" onclick="closeMenu()"
+          >Get in Touch</a
+        >
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-label">WELCOME TO MY PORTFOLIO</div>
-                <h1>Hi, I'm Narjes Farhat</h1>
-                <div class="subtitle">AI Engineer • UX/UI Designer • MSc Social Psychology Candidate</div>
-                <p class="hero-description">
-                    I specialize in building intelligent, ethical AI systems with a unique blend of technical expertise 
-                    and psychological insight. Based in Beirut, Lebanon, I'm passionate about creating autonomous AI 
-                    that serves humanity through transparent decision-making and user-centered design.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">
-                        Let's Collaborate
-                        <span>→</span>
-                    </a>
-                    <a href="#projects" class="btn-secondary">
-                        View My Work
-                    </a>
+    <main id="main-content">
+      <!-- ==================== HERO ====================
+         Changed from: AI Engineer • UX/UI Designer • MSc Social Psychology Candidate
+         Changed to:   AI & Digital Systems Specialist | SEO Analyst | UX Designer | Cybersecurity Enthusiast
+    -->
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-dots" aria-hidden="true"></div>
+        <div class="hero-bottom-fade" aria-hidden="true"></div>
+
+        <div class="container hero-content reveal">
+          <div class="badge" role="text">Based in Beirut, Lebanon</div>
+
+          <h1>
+            Bridging <span class="accent">Systems</span><br />
+            &amp; <span class="dim">Human Behavior</span>
+          </h1>
+
+          <p class="hero-sub">
+            Hi, I'm <strong>Narjes Saeed Farhat</strong> — a multidisciplinary
+            specialist in AI, SEO, UX Design, and Cybersecurity, driven by a
+            deep understanding of human psychology.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <!-- SVG: eye -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              View My Work
+            </a>
+            <a
+              href="https://linkedin.com/in/narjes-farhat"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-btn"
+              aria-label="LinkedIn profile"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a
+              href="https://github.com/narjesfarhat"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-btn"
+              aria-label="GitHub profile"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://upwork.com/fl/narjesfarhat"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-btn"
+              aria-label="Upwork profile"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 13c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"
+                />
+                <path d="M3 13s1.5-6 7-6c2.5 0 4 1.5 5 3" />
+                <path d="M15 16l-2 5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- ==================== ABOUT ====================
+         Changed: content now reflects new professional summary and interdisciplinary identity
+    -->
+      <section id="about" aria-label="About Narjes">
+        <div class="container">
+          <div class="about-grid">
+            <!-- Visual side -->
+            <div class="about-img-wrap reveal">
+              <div class="about-glow" aria-hidden="true"></div>
+              <!-- Abstract visual using CSS gradient -->
+              <div
+                style="
+                  width: 100%;
+                  aspect-ratio: 1;
+                  border-radius: 1.5rem;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(245, 166, 35, 0.15) 0%,
+                    rgba(37, 99, 235, 0.1) 50%,
+                    rgba(13, 20, 36, 0.8) 100%
+                  );
+                  border: 1px solid var(--border);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  overflow: hidden;
+                  position: relative;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: radial-gradient(
+                      ellipse 60% 60% at 40% 40%,
+                      rgba(245, 166, 35, 0.2) 0%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="140"
+                  height="140"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="rgba(245,166,35,0.3)"
+                  stroke-width="0.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"
+                  />
+                  <path
+                    d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"
+                  />
+                </svg>
+              </div>
+
+              <div class="about-card glass reveal reveal-delay-2">
+                <div class="about-card-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"
+                    />
+                    <path
+                      d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"
+                    />
+                  </svg>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <div class="stats-section">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Professional Certifications</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">CS50x</div>
-                <div class="stat-label">Harvard Certified</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">12+</div>
-                <div class="stat-label">Technologies Mastered</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Languages Fluent</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="section-header">
-            <div class="section-label">INTRODUCTION</div>
-            <h2>About Me</h2>
-            <p>Combining technical expertise with psychological insight to build more human-centered AI solutions</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-text">
+                <h4>Psychology Meets Tech</h4>
                 <p>
-                    I'm a beginner AI engineer with a unique interdisciplinary background, actively building expertise 
-                    through hands-on projects and rigorous academic study. My focus is on <strong>agentic design</strong> — 
-                    the art and science of crafting intelligent systems that act autonomously, make informed decisions, 
-                    and operate with ethical transparency.
+                  Applying my Master's in Social Psychology to build
+                  human-centered, high-conversion digital strategies.
                 </p>
-                
+              </div>
+            </div>
+
+            <!-- Text side -->
+            <div class="reveal reveal-delay-1">
+              <div class="section-label section-label--left">About Me</div>
+              <h2 class="section-title">
+                Data-driven logic.<br />Human-centered design.
+              </h2>
+              <div class="about-text">
                 <p>
-                    What sets my approach apart is the integration of <strong>social psychology principles</strong> into 
-                    technical AI development. This combination allows me to think critically about how AI systems interact 
-                    with humans, make decisions that affect real people, and maintain ethical standards in autonomous operations.
+                  I am an
+                  <strong>AI &amp; Digital Systems Specialist</strong> with
+                  hands-on experience in SEO analysis, UX design, cybersecurity
+                  fundamentals, and AI/LLM development.
                 </p>
-
-                <div class="highlight-box">
-                    <p>
-                        "I believe the most powerful AI systems are those that combine technical excellence with 
-                        deep understanding of human behavior, ethics, and social impact."
-                    </p>
-                </div>
-                
                 <p>
-                    Through my CS50x journey and independent exploration, I've developed strong foundations in programming 
-                    logic, data structures, and modern AI frameworks. I work extensively with <strong>Python</strong> and 
-                    <strong>LangChain</strong>, building practical applications while continuously expanding my understanding 
-                    of emerging AI technologies.
+                  What sets me apart is my foundation in human behavior through
+                  my <strong>Master's in Social Psychology</strong>. This
+                  perspective enables me to create digital strategies that
+                  aren't just technically sound, but deeply resonant with how
+                  people think, persuade, and make decisions.
                 </p>
-                
                 <p>
-                    I'm actively seeking <strong>junior AI engineer positions</strong> where I can contribute meaningfully 
-                    while continuing to grow. I bring intellectual curiosity, strong work ethic, collaborative spirit, 
-                    and a genuine passion for solving complex problems with elegant solutions.
+                  I specialize in auditing high-traffic websites, identifying
+                  critical performance issues, and developing actionable
+                  optimization strategies that drive real conversion.
                 </p>
-            </div>
-            <div class="skills-container">
-                <h3>Core Competencies</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Python Development</div>
-                    <div class="skill-item">LangChain Frameworks</div>
-                    <div class="skill-item">Agentic System Design</div>
-                    <div class="skill-item">AI Ethics & Governance</div>
-                    <div class="skill-item">UX/UI Research</div>
-                    <div class="skill-item">Machine Learning</div>
+              </div>
+              <div class="about-stats">
+                <div class="about-stat">
+                  <div class="num">4+</div>
+                  <div class="lbl">Core Disciplines</div>
                 </div>
+                <div class="about-stat">
+                  <div class="num">M.A.</div>
+                  <div class="lbl">Social Psychology</div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="section-header">
-            <div class="section-label">PORTFOLIO</div>
-            <h2>Featured Projects</h2>
-            <p>A selection of work demonstrating my technical capabilities and problem-solving approach</p>
+      <!-- ==================== EXPERIENCE ====================
+         Changed: replaced "Education & Learning Path" section
+         Added: real SEO Analyst — Training role at SEO Pro Path
+    -->
+      <section id="experience" aria-label="Professional experience">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 3rem" class="reveal">
+            <div class="section-label">Experience</div>
+            <h2 class="section-title">Professional Journey</h2>
+          </div>
+
+          <div class="exp-wrap">
+            <div class="exp-item reveal reveal-delay-1">
+              <div class="exp-dot-col" aria-hidden="true">
+                <div class="exp-dot"></div>
+                <div class="exp-line"></div>
+              </div>
+              <div class="exp-content">
+                <div class="exp-meta">
+                  <span class="exp-date">2025 – 2026</span>
+                  <span class="exp-company"
+                    >SEO Pro Path Mentorship Program</span
+                  >
+                </div>
+                <div class="exp-title">SEO Analyst — Training</div>
+                <ul class="exp-list" role="list">
+                  <li>
+                    Conducted full-scale SEO audits for high-traffic websites
+                    (e.g., TasteOfHome.com — 3.9M monthly visits), identifying
+                    350+ technical and on-page issues
+                  </li>
+                  <li>
+                    Developed keyword strategy and KPI tracking roadmap
+                    targeting high-intent search terms
+                  </li>
+                  <li>
+                    Performed competitor analysis against major platforms
+                    (AllRecipes, Food Network, Delish), uncovering backlink gaps
+                    of 30,000+ domains
+                  </li>
+                  <li>
+                    Built actionable backlink acquisition and content
+                    optimization strategies
+                  </li>
+                  <li>
+                    Identified Core Web Vitals issues, internal linking gaps,
+                    and metadata improvements across multiple domains
+                  </li>
+                  <li>
+                    Delivered structured SEO reports with prioritized
+                    recommendations
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-category">Software Development</div>
-                    <h3>Cost Scanner Application</h3>
-                </div>
-                <div class="project-body">
-                    <p class="project-description">
-                        Developed as the capstone project for CS50x, this Python-based tool provides comprehensive 
-                        cost data scanning and analysis capabilities. The project demonstrates proficiency in file 
-                        handling, data processing algorithms, and building practical utilities for real-world business applications.
-                    </p>
-                    <li>
-                      <a href="cost-scanner-case-study.html" target="_blank">
-                        View the CostScanner case study
-                     </a>
-                   </li>        
+      </section>
 
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Data Processing</span>
-                        <span class="tag">File I/O</span>
-                        <span class="tag">Algorithm Design</span>
-                    </div>
-                </div>
+      <!-- ==================== PROJECTS ====================
+         Changed: replaced old CS50/Titanic/Figma projects with new SEO audit projects
+    -->
+      <section id="projects" aria-label="Featured projects">
+        <div class="container">
+          <div class="projects-header">
+            <div class="reveal">
+              <div class="section-label section-label--left">Featured Work</div>
+              <h2 class="section-title" style="margin-bottom: 0">
+                Key Projects
+              </h2>
             </div>
+            <a
+              href="https://github.com/narjesfarhat"
+              target="_blank"
+              rel="noreferrer"
+              class="btn btn-outline reveal"
+              style="padding: 0.6rem 1.25rem; font-size: 0.875rem"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                />
+              </svg>
+              GitHub Profile
+            </a>
+          </div>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-category">UX/UI Design</div>
-                    <h3>Modern Music Streaming App</h3>
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="project-card glass reveal reveal-delay-1">
+              <div class="project-top">
+                <div class="project-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
                 </div>
-                <div class="project-body">
-                    <p class="project-description">
-                        Designed a comprehensive music streaming application in Figma, emphasizing user-centered 
-                        design principles. Features intuitive navigation architecture, personalized content discovery 
-                        algorithms, and a modern visual identity system that prioritizes accessibility and engagement.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Figma</span>
-                        <span class="tag">UI/UX Design</span>
-                        <span class="tag">User Research</span>
-                        <span class="tag">Prototyping</span>
-                    </div>
-                </div>
-            </div>
+                <span class="badge badge-neutral">2026</span>
+              </div>
+              <h3>Full SEO Audit &amp; Strategy Development</h3>
+              <p class="project-target">TasteOfHome.com &amp; BonAppetit.com</p>
+              <p class="project-desc">
+                Delivered comprehensive SEO audits covering on-page, technical,
+                speed, and backlink dimensions. Created keyword strategies,
+                backlink acquisition plans, and performance tracking systems.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">SEMrush</span>
+                <span class="project-tag">Ahrefs</span>
+                <span class="project-tag">Screaming Frog</span>
+                <span class="project-tag">Seobility</span>
+                <span class="project-tag">Moz</span>
+                <span class="project-tag">PageSpeed Insights</span>
+              </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-category">Machine Learning</div>
-                    <h3>Titanic Survival Prediction Model</h3>
+            <!-- Project 2 -->
+            <article class="project-card glass reveal reveal-delay-2">
+              <div class="project-top">
+                <div class="project-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                  </svg>
                 </div>
-                <div class="project-body">
-                    <p class="project-description">
-                        Constructed a predictive machine learning model to analyze passenger survival patterns 
-                        from the Titanic dataset. Implemented advanced feature engineering techniques and 
-                        classification algorithms to achieve optimal prediction accuracy while maintaining model interpretability.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Scikit-Learn</span>
-                        <span class="tag">Feature Engineering</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-category">AI Research</div>
-                    <h3>Agentic Systems Exploration</h3>
-                </div>
-                <div class="project-body">
-                    <p class="project-description">
-                        Ongoing research initiative focused on understanding and implementing autonomous AI agents. 
-                        Exploring decision-making architectures, learning mechanisms, and ethical frameworks using 
-                        LangChain. Developing patterns for building reliable, transparent, and auditable agent systems.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">AI Agents</span>
-                        <span class="tag">LangChain</span>
-                        <span class="tag">Research</span>
-                        <span class="tag">Ethics</span>
-                    </div>
-                </div>
-            </div>
+                <span class="badge badge-neutral">2026</span>
+              </div>
+              <h3>SEO Competitor Analysis — AI Writing Platforms</h3>
+              <p class="project-target">Writesonic vs Copy.ai vs Jasper</p>
+              <p class="project-desc">
+                Compared three leading AI platforms across SEO performance,
+                traffic, backlinks, and Core Web Vitals. Delivered strategic
+                recommendations based on traffic gaps, technical SEO factors,
+                and authority scores.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Competitor Analysis</span>
+                <span class="project-tag">Technical SEO</span>
+                <span class="project-tag">Traffic Gap Analysis</span>
+                <span class="project-tag">Core Web Vitals</span>
+              </div>
+            </article>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Experience Timeline -->
-    <section id="experience">
-        <div class="section-header">
-            <div class="section-label">JOURNEY</div>
-            <h2>Education & Learning Path</h2>
-            <p>My continuous pursuit of knowledge and skill development</p>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">Current</div>
-                <h3>MSc Social Psychology (In Progress)</h3>
-                <p>
-                    Lebanese University - Advancing understanding of human behavior, decision-making processes, and social dynamics. 
-                    Integrating psychological principles with AI development to create more ethical and human-centered systems.
-                </p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2025</div>
-                <h3>CS50x Certificate - Harvard University</h3>
-                <p>
-                    Completed comprehensive computer science curriculum covering algorithms, data structures, 
-                    web development, and software engineering principles. Developed strong foundation in 
-                    computational thinking and problem-solving.
-                </p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">Ongoing</div>
-                <h3>Independent AI & Machine Learning Studies</h3>
-                <p>
-                    Self-directed learning in artificial intelligence, machine learning, and agentic systems. 
-                    Working with Python, LangChain, and modern AI frameworks through hands-on projects and research.
-                </p>
-            </div>
-        </div>
-    </section>
+      <!-- ==================== SKILLS ====================
+         Changed: removed old skills (Python, LangChain, Scikit-Learn, SPSS, Pandas)
+         Added: AI&Data, Cybersecurity, SEO&Marketing, UX&Web categories from new resume
+    -->
+      <section id="skills" aria-label="Skills and tools">
+        <div class="container">
+          <div class="skills-header reveal">
+            <div class="section-label">Expertise</div>
+            <h2 class="section-title">Skills &amp; Toolkit</h2>
+          </div>
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="section-header">
-            <div class="section-label">CREDENTIALS</div>
-            <h2>Professional Certifications</h2>
-            <p>Continuous learning across technology, design, and business domains</p>
-        </div>
-        <div class="certifications-grid">
-            <div class="cert-category">
-                <h3>Technology & AI</h3>
-                <div class="cert-list">
-                    <div class="cert-item">
-                        <div class="cert-title">CS50x: Introduction to Computer Science</div>
-                        <div class="cert-org">Harvard University</div>
-                        <div class="cert-year">2025</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">SPSS Training</div>
-                        <div class="cert-org">Professional Certification</div>
-                        <div class="cert-year">2020</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Microsoft Word & PowerPoint Skills</div>
-                        <div class="cert-org">Microsoft</div>
-                        <div class="cert-year">2020</div>
-                    </div>
+          <div class="skills-grid">
+            <!-- AI & Data -->
+            <div class="skill-card glass reveal reveal-delay-1">
+              <div class="skill-card-header">
+                <div class="skill-cat-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"
+                    />
+                    <path
+                      d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"
+                    />
+                  </svg>
                 </div>
+                <h3>AI &amp; Data</h3>
+              </div>
+              <ul class="skill-list" role="list">
+                <li>LLMs &amp; Prompt Engineering</li>
+                <li>AI Content Strategy</li>
+                <li>LLM Projects (GitHub)</li>
+                <li>AI Applications</li>
+              </ul>
             </div>
 
-            <div class="cert-category">
-                <h3>UI/UX Design</h3>
-                <div class="cert-list">
-                    <div class="cert-item">
-                        <div class="cert-title">Figma UI/UX Design Essentials</div>
-                        <div class="cert-org">Udemy</div>
-                        <div class="cert-year">2025</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">User Experience (UX) Fundamentals</div>
-                        <div class="cert-org">Udemy</div>
-                        <div class="cert-year">2025</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Figma UI/UX Design Advanced</div>
-                        <div class="cert-org">Udemy</div>
-                        <div class="cert-year">2026</div>
-                    </div>
+            <!-- Cybersecurity -->
+            <div class="skill-card glass reveal reveal-delay-2">
+              <div class="skill-card-header">
+                <div class="skill-cat-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
                 </div>
+                <h3>Cybersecurity</h3>
+              </div>
+              <ul class="skill-list" role="list">
+                <li>Web Security Fundamentals</li>
+                <li>SQL Injection</li>
+                <li>Vulnerability Analysis</li>
+                <li>Secure Web Practices</li>
+              </ul>
             </div>
 
-            <div class="cert-category">
-                <h3>Business & Digital Skills</h3>
-                <div class="cert-list">
-                    <div class="cert-item">
-                        <div class="cert-title">Risk Management</div>
-                        <div class="cert-org">Brentwood Open Learning College</div>
-                        <div class="cert-year">2022</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Digital Marketing & E-Commerce</div>
-                        <div class="cert-org">Coursera</div>
-                        <div class="cert-year">2022</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">CPD Certificate</div>
-                        <div class="cert-org">Professional Development</div>
-                        <div class="cert-year">Certified</div>
-                    </div>
+            <!-- SEO & Marketing -->
+            <div class="skill-card glass reveal reveal-delay-3">
+              <div class="skill-card-header">
+                <div class="skill-cat-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
                 </div>
+                <h3>SEO &amp; Marketing</h3>
+              </div>
+              <ul class="skill-list" role="list">
+                <li>Technical SEO</li>
+                <li>On-Page &amp; Off-Page SEO</li>
+                <li>Keyword Research</li>
+                <li>Competitor Analysis</li>
+                <li>Backlink Strategy</li>
+                <li>Core Web Vitals</li>
+                <li>Google Analytics</li>
+              </ul>
             </div>
 
-            <div class="cert-category">
-                <h3>Languages</h3>
-                <div class="cert-list">
-                    <div class="cert-item">
-                        <div class="cert-title">Arabic</div>
-                        <div class="cert-org">Native Proficiency</div>
-                        <div class="cert-year">—</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">English</div>
-                        <div class="cert-org">Fluent</div>
-                        <div class="cert-year">—</div>
-                    </div>
+            <!-- UX & Web -->
+            <div class="skill-card glass reveal reveal-delay-4">
+              <div class="skill-card-header">
+                <div class="skill-cat-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="9" y1="21" x2="9" y2="9" />
+                  </svg>
                 </div>
+                <h3>UX &amp; Web</h3>
+              </div>
+              <ul class="skill-list" role="list">
+                <li>UX Design</li>
+                <li>User-Centered Design</li>
+                <li>WordPress</li>
+                <li>HTML &amp; CSS</li>
+                <li>Mobile Optimization</li>
+              </ul>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Tools Section -->
-    <section id="tools">
-        <div class="section-header">
-            <div class="section-label">TECHNICAL STACK</div>
-            <h2>Tools & Technologies</h2>
-            <p>The technologies I leverage to build innovative solutions</p>
+          <div class="tools-row reveal">
+            <p class="tools-label">Tools I use</p>
+            <div class="tools-chips" role="list">
+              <span class="tool-chip" role="listitem">SEMrush</span>
+              <span class="tool-chip" role="listitem">Ahrefs</span>
+              <span class="tool-chip" role="listitem">Moz</span>
+              <span class="tool-chip" role="listitem">Screaming Frog</span>
+              <span class="tool-chip" role="listitem">Seobility</span>
+              <span class="tool-chip" role="listitem">PageSpeed Insights</span>
+              <span class="tool-chip" role="listitem">KeywordTool.io</span>
+              <span class="tool-chip" role="listitem">AnswerThePublic</span>
+              <span class="tool-chip" role="listitem">GetSpeedGo</span>
+              <span class="tool-chip" role="listitem">Google Analytics</span>
+            </div>
+          </div>
         </div>
-        <div class="tools-grid">
-            <div class="tool-card">
-                <div class="tool-icon">Py</div>
-                <p>Python</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">LC</div>
-                <p>LangChain</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">Fig</div>
-                <p>Figma</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">VS</div>
-                <p>VSCode</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">Git</div>
-                <p>GitHub</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">St</div>
-                <p>Streamlit</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">Jp</div>
-                <p>Jupyter</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">Nt</div>
-                <p>Notion</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">NP</div>
-                <p>NumPy</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">Pd</div>
-                <p>Pandas</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">Sk</div>
-                <p>Scikit-Learn</p>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon">SP</div>
-                <p>SPSS</p>
-            </div>
-        </div>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="section-header">
-            <div class="section-label">GET IN TOUCH</div>
-            <h2>Let's Work Together</h2>
+      <!-- ==================== EDUCATION & CERTS ====================
+         Changed: removed old certifications (SPSS, Microsoft Word, old Figma certs)
+         Added: SEMrush SEO, SEO Pro Path, CS50 via edX, PortSwigger, AI/LLM 2026
+         Changed: Bachelor's field from undisclosed to Sociology
+    -->
+      <section id="education" aria-label="Education and certifications">
+        <div class="container">
+          <div class="edu-grid">
+            <!-- Education -->
+            <div class="reveal">
+              <div class="section-label section-label--left">Academic</div>
+              <h2 class="section-title">Education</h2>
+              <div class="edu-cards">
+                <div class="edu-card glass">
+                  <span class="badge-current">Current</span>
+                  <h3>Master's Degree</h3>
+                  <p class="field">Social Psychology</p>
+                  <p class="note">
+                    Focus: Human behavior, persuasion, and decision-making —
+                    applied to content strategy, UX, and conversion
+                    optimization.
+                  </p>
+                </div>
+                <div class="edu-card edu-card-dim glass">
+                  <h3>Bachelor's Degree</h3>
+                  <p class="field">Sociology</p>
+                  <p class="note">
+                    <span
+                      class="badge badge-neutral"
+                      style="font-size: 0.7rem; padding: 0.2rem 0.6rem"
+                      >Completed</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="reveal reveal-delay-1">
+              <div class="section-label section-label--left">
+                Continued Learning
+              </div>
+              <h2 class="section-title">Certifications</h2>
+              <div class="cert-grid">
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>SEO Certification</h4>
+                    <span class="cert-year">2025</span>
+                  </div>
+                  <p class="cert-issuer">SEMrush</p>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>SEO Certification</h4>
+                    <span class="cert-year">2026</span>
+                  </div>
+                  <p class="cert-issuer">SEO Pro Path</p>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>CS50: Intro to Computer Science</h4>
+                    <span class="cert-year">2025</span>
+                  </div>
+                  <p class="cert-issuer">Harvard University / edX</p>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>Google Digital Marketing &amp; E-commerce</h4>
+                    <span class="cert-year">2025</span>
+                  </div>
+                  <p class="cert-issuer">Coursera</p>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>UX Design Essentials &amp; Advanced</h4>
+                    <span class="cert-year">2025</span>
+                  </div>
+                  <p class="cert-issuer">Udemy</p>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>Risk Management</h4>
+                    <span class="cert-year">2025</span>
+                  </div>
+                  <p class="cert-issuer">Brentwood Open Learning College</p>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>Web Security &amp; SQL Injection</h4>
+                    <span class="cert-year" style="color: var(--fg-muted)"
+                      >In Progress</span
+                    >
+                  </div>
+                  <p class="cert-issuer">PortSwigger Web Academy</p>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-item-top">
+                    <h4>Advanced AI / LLM Projects</h4>
+                    <span class="cert-year" style="color: var(--fg-muted)"
+                      >2026</span
+                    >
+                  </div>
+                  <p class="cert-issuer">GitHub (In Progress)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT ====================
+         Changed: added Upwork link; updated copy to match new specialist positioning
+    -->
+      <section id="contact" aria-label="Contact">
+        <div class="contact-glow" aria-hidden="true"></div>
+        <div class="container">
+          <div class="contact-box glass reveal">
+            <h2>Let's work together.</h2>
             <p>
-                I'm actively seeking junior AI engineer positions and collaboration opportunities. 
-                Whether you have a project in mind, want to discuss AI ethics, or simply want to connect, 
-                I'd love to hear from you.
+              Looking for someone who understands both the technical systems and
+              the human behavior behind them? Let's connect.
             </p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>Send me a message directly</p>
-                    <a href="mailto:narjesfarhat4@gmail.com" class="contact-link">narjesfarhat4@gmail.com →</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <p>Connect professionally</p>
-                    <a href="https://linkedin.com/in/narjes-farhat" target="_blank" class="contact-link">View Profile →</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">💻</div>
-                    <h3>GitHub</h3>
-                    <p>Explore my code repositories</p>
-                    <a href="https://github.com/narjesfarhat" target="_blank" class="contact-link">@narjesfarhat →</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📄</div>
-                    <h3>Resume</h3>
-                    <p>Download my CV</p>
-                    <a href="Narjes_Farhat_Resume.pdf" download class="contact-link">Download PDF →</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2026 Narjes Farhat • Beirut, Lebanon • Building the future of AI with ethics, purpose, and innovation.</p>
+            <div class="contact-btns">
+              <a href="mailto:narjesfarhat4@gmail.com" class="btn btn-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                narjesfarhat4@gmail.com
+              </a>
+              <a
+                href="https://upwork.com/fl/narjesfarhat"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-outline"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                Hire on Upwork
+              </a>
+            </div>
+
+            <div class="social-row" role="list">
+              <a
+                href="https://linkedin.com/in/narjes-farhat"
+                target="_blank"
+                rel="noreferrer"
+                class="social-item"
+                role="listitem"
+                aria-label="LinkedIn"
+              >
+                <div class="social-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </div>
+                <span class="social-label">LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/narjesfarhat"
+                target="_blank"
+                rel="noreferrer"
+                class="social-item"
+                role="listitem"
+                aria-label="GitHub"
+              >
+                <div class="social-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    />
+                  </svg>
+                </div>
+                <span class="social-label">GitHub</span>
+              </a>
+              <a
+                href="https://upwork.com/fl/narjesfarhat"
+                target="_blank"
+                rel="noreferrer"
+                class="social-item"
+                role="listitem"
+                aria-label="Upwork"
+              >
+                <div class="social-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </div>
+                <span class="social-label">Upwork</span>
+              </a>
+            </div>
+          </div>
         </div>
+      </section>
+    </main>
+    <!-- /main -->
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-logo">N<span>.</span>F</div>
+        <p>
+          &copy; <span id="year"></span> Narjes Saeed Farhat &mdash; Beirut,
+          Lebanon
+        </p>
+        <div class="footer-langs" aria-label="Languages">
+          <span>En</span>
+          <span class="sep">|</span>
+          <span>Ar</span>
+        </div>
+      </div>
     </footer>
 
+    <!-- ==================== SCRIPTS ==================== -->
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+      // Dynamic year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          if (id === "#") return;
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            const offset = 80; // navbar height
+            const top =
+              target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
         });
+      });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      // Scroll reveal
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
+      revealEls.forEach((el) => io.observe(el));
 
-        // Observe all project cards and tool cards
-        document.querySelectorAll('.project-card, .tool-card, .contact-card, .timeline-item, .cert-item').forEach(el => {
-            observer.observe(el);
-        });
+      // Trigger hero reveal immediately
+      document.querySelector(".hero .reveal")?.classList.add("visible");
+
+      // Mobile menu toggle
+      function toggleMenu(btn) {
+        const menu = document.getElementById("mobile-menu");
+        const open = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
+        btn.querySelectorAll("span")[0].style.transform = open
+          ? "rotate(45deg) translate(5px,5px)"
+          : "";
+        btn.querySelectorAll("span")[1].style.opacity = open ? "0" : "";
+        btn.querySelectorAll("span")[2].style.transform = open
+          ? "rotate(-45deg) translate(5px,-5px)"
+          : "";
+      }
+
+      function closeMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.remove("open");
+        const btn = document.querySelector(".nav-hamburger");
+        btn.setAttribute("aria-expanded", "false");
+        btn.querySelectorAll("span").forEach((s) => (s.style = ""));
+      }
+
+      // Keyboard navigation: close mobile menu on Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // Navbar shadow on scroll
+      window.addEventListener(
+        "scroll",
+        () => {
+          document.querySelector("nav").style.boxShadow =
+            window.scrollY > 20 ? "0 4px 32px rgba(0,0,0,0.4)" : "";
+        },
+        { passive: true },
+      );
     </script>
-</body>
+  </body>
 </html>
+
